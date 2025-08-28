@@ -53,6 +53,7 @@ require("catppuccin").setup({
   },
 })
 vim.cmd.colorscheme("catppuccin")
+
 require("blink-cmp").setup({
   completion = {
     accept = {
