@@ -15,6 +15,46 @@ require("copilot").setup({
   },
   panel = { enabled = true, auto_refresh = true, keymap = { accept = "<Tab>" } },
 })
+
+require("catppuccin").setup({
+  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  transparent_background = true, -- disables setting the background color.
+  float = {
+    transparent = true,
+    solid = false, -- if true, the float background will be set to the background color of the current theme.
+  },
+  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { "italic" }, -- Change the style of comments
+    conditionals = { "italic" },
+    functions = { "bold" },
+    keywords = { "bold" },
+  },
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+    copilot_vim = true,
+  },
+  highlight_overrides = {
+    all = function(_)
+      return {
+        CursorLine = { bg = "NONE", bold = true },
+        CursorLineNr = { fg = "#FFFFFF", bold = true },
+        BlinkCmpMenu = { bg = "NONE", fg = "#FFFFFF" },
+        BlinkCmpMenuSelection = { bg = "NONE", fg = "#FFFFFF" },
+        CmpBorder = { fg = "NONE", bg = "NONE" },
+      }
+    end,
+  },
+})
+vim.cmd.colorscheme("catppuccin")
+
 require("blink-cmp").setup({
   completion = {
     accept = {
@@ -52,45 +92,3 @@ require("blink-cmp").setup({
     },
   },
 })
-
-require("bufferline").setup({})
-
-require("catppuccin").setup({
-  flavour = "macchiato", -- latte, frappe, macchiato, mocha
-  transparent_background = true, -- disables setting the background color.
-  float = {
-    transparent = true,
-    solid = false, -- if true, the float background will be set to the background color of the current theme.
-  },
-  show_end_of_buffer = true,
-  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-    comments = { "italic" }, -- Change the style of comments
-    conditionals = { "italic" },
-    functions = { "bold" },
-    keywords = { "bold" },
-  },
-  integrations = {
-    cmp = true,
-    gitsigns = true,
-    nvimtree = true,
-    treesitter = true,
-    notify = false,
-    mini = {
-      enabled = true,
-      indentscope_color = "",
-    },
-    copilot_vim = true,
-  },
-  highlight_overrides = {
-    all = function(_)
-      return {
-        CursorLine = { bg = "NONE", bold = true },
-        CursorLineNr = { fg = "#FFFFFF", bold = true },
-        BlinkCmpMenu = { bg = "NONE", fg = "#FFFFFF" },
-        BlinkCmpMenuSelection = { bg = "NONE", fg = "#FFFFFF" },
-      }
-    end,
-  },
-})
-
-vim.cmd.colorscheme("catppuccin")
